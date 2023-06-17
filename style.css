@@ -80,6 +80,10 @@ nav .btnLogin-popup:hover {
     color: #162938;
 }
 
+.menu {
+    display: none;
+}
+
 .wrapper {
     position: relative;
     width: 400px;
@@ -93,7 +97,13 @@ nav .btnLogin-popup:hover {
     justify-content: center;
     align-items: center;
     overflow: hidden;
-    transition: height .2s ease;
+    transform: scale(0);
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.wrapper.active-popup {
+    transform: scale(1);
+
 }
 
 .wrapper.active {
@@ -124,6 +134,17 @@ nav .btnLogin-popup:hover {
 .wrapper.active .form-box.register {
     transition: transform .18s ease;
     transform: translateX(0);
+}
+
+.wrapper .form-box.resetDeSenha {
+    position: absolute;
+    transition: none;
+    transform: translateX(800px);
+}
+
+.wrapper.active .form-box.resetDeSenha {
+    transition: transform .18s ease;
+    transform: translateX(800);
 }
 
 .wrapper .icon-close {
@@ -171,7 +192,7 @@ nav .btnLogin-popup:hover {
 
 .input-box input:focus~label,
 .input-box input:valid~label {
-    top: -5px
+    top: -5px;
 }
 
 .input-box input {
